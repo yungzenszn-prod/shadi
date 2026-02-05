@@ -3,108 +3,96 @@ const stateKey = "weddingQuestState";
 const wordleItems = [
   {
     question: "What board game did Sanju and Amish play when they visited Michigan?",
-    answer: "CATAN",
+    answer: "GANJALAND",
   },
-  { question: "What is Amish’s current hip hop producer name?", answer: "CAFEZ" },
+  { question: "What is Amish’s current hip hop producer name?", answer: "YUNGZEN" },
   {
     question:
       "What random animal did Amish, Dev, and Kundu spot in the middle of a parking lot in Michigan?",
-    answer: "GOOSE",
-  },
-  {
-    question: "What was the gesture 🤏 (tapping the index finger and thumb repeatedly) used to signal?",
-    answer: "PINCH",
+    answer: "TURTLE",
   },
   {
     question:
-      "When Amish and Sanju made Aate ka Halwa, why didn’t people eat a lot of it, even when it tasted amazing?",
-    answer: "HEAVY",
+      "What was the gesture 🤏 (tapping the index finger and thumb repeatedly) used to signal to pass?",
+    answer: "VAPE",
+  },
+  {
+    question:
+      "When Amish and Sanju made Aate ka Halwa, why didn’t people eat a lot of it, even when it tasted amazing? What did it contain?",
+    answer: "WEED",
   },
   {
     question:
       "What is a phrase/word Sanju uses as a post script anytime she shares info about others that has nothing to do with her?",
-    answer: "NOTME",
+    answer: "ITSEEMS",
   },
   {
     question:
       "While smoking on the Potomac River in DC, what activity was everyone engrossed in?",
     answer: "PHONE",
   },
-  {
-    question: "What was the weirdest thing Samir has done for Sanjana/asked Sanjana to do?",
-    answer: "DANCE",
-  },
-  { question: "Controversial: What character does Amish’s ex look like?", answer: "HUMPT" },
+  { question: "Controversial: What character does Amish’s ex look like?", answer: "EGBERT" },
   {
     question: "What is the name of the song Amish wrote for Sanjana: ____ jam?",
-    answer: "DREAM",
+    answer: "AIRPLANE",
   },
   { question: "Sanjana did what business back in India?", answer: "STORE" },
   {
     question: "Who was the first ever person to catch Sanjana and Amish getting touchy?",
-    answer: "RAHUL",
+    answer: "SHAKIR",
   },
-  { question: "If Sanj goes missing, where would you go to find her?", answer: "MALLS" },
-  { question: "What is Amish’s birthplace?", answer: "DELHI" },
-  { question: "Sanjana hates this character in Stranger Things?", answer: "BILLY" },
+  { question: "If Sanj goes missing, which store would you go to find her?", answer: "TRADERJOES" },
+  { question: "What is Amish’s birthplace?", answer: "PLANO" },
+  { question: "Sanjana hates this character in Stranger Things?", answer: "NANCY" },
   {
     question:
       "At what speed was Sanjana driving when she got pulled over on the way to Ocean City?",
-    answer: "EIGHT",
+    answer: "NINETY",
   },
   {
     question: "What’s the name of the DJ Sanjana and Amish first candy-flipped at?",
-    answer: "SKRIL",
+    answer: "BHASKAR",
   },
   {
     question:
       "What is the plug’s name that provided the green supreme to the DC crew regularly?",
-    answer: "RASTA",
-  },
-  {
-    question:
-      "What did Samir say when he decided to third-wheel Sanjana and Amish for all eternity?",
-    answer: "IMINN",
+    answer: "CHINO",
   },
   {
     question: "What was the name of the bar they went to just before throwing up in DC?",
-    answer: "MADAM",
+    answer: "DECADES",
   },
-  { question: "Controversial: Who is triceratops?", answer: "KUNDU" },
   {
     question: "What was the name of the kitten Amish and Sanjana found in the apartment building?",
-    answer: "LUNAA",
+    answer: "KNIGHT",
   },
   {
-    question: "How many days did Amish live in Columbia Plaza in his first semester?",
-    answer: "SIXTY",
+    question: "How many days did Amish live in Columbia Plaza in his first semester? _",
+    answer: "ZERO",
   },
-  { question: "Where did the group go to do “shroomies”?", answer: "WOODS" },
-  { question: "If Sanjana ever created a horcrux, it would be a:", answer: "DIARY" },
-  { question: "How many movies does Amish consider his favorites?", answer: "TWENT" },
+  {
+    question: "If Sanjana ever created a horcrux, it would be a _ bottle:",
+    answer: "WATER",
+  },
+  { question: "How many movies does Amish consider his favorites?", answer: "INFINITE" },
   {
     question: "What was the first trip Sanjana and Amish took with Shakir and Upmanyu?",
-    answer: "VEGAS",
+    answer: "OCEANCITY",
   },
-  { question: "In Nashville, which satanic shot did Amish discover?", answer: "ABSNT" },
+  { question: "In Nashville, which satanic shot did Amish discover? _ juice", answer: "PICKLE" },
   {
     question: "At which music festival did Sam, DD, and Amish sneak in liquor?",
-    answer: "LOLLA",
+    answer: "ROLLINGLOUD",
   },
   {
     question:
-      "What cuisine was the fancy restaurant before Sanjana left for Missouri?",
-    answer: "ITALI",
-  },
-  {
-    question:
-      "What were Shakir and Amish watching in the car on the way to Nashville?",
-    answer: "MOVIE",
+      "What were Shakir and Amish watching in the car on the way to Nashville? LOGAN PAUL VS?",
+    answer: "MIKETYSON",
   },
   {
     question:
       "On the New York trip, what piece of tech did Sam and Sanju buy that they definitely didn’t need?",
-    answer: "DRONE",
+    answer: "SHOCKZ",
   },
 ];
 
@@ -127,7 +115,7 @@ const defaultState = {
   activePage: "dashboard",
   milestones: {},
   wordle: {
-    version: 2,
+    version: 3,
     solved: [],
     incorrect: [],
     index: 0,
@@ -472,22 +460,22 @@ function showNextNotification() {
   }, 4200);
 }
 
-function keyFromPhrase(phrase) {
-  const letters = phrase.toLowerCase().replace(/[^a-z]/g, "");
-  if (!letters) return "xxxxx";
-  let key = letters.slice(0, 5);
-  while (key.length < 5) {
-    key += key[key.length - 1] || "x";
-  }
-  return key;
+function getCurrentWordleItem() {
+  return wordleItems[state.wordle.index];
+}
+
+function getCurrentWordLength() {
+  return getCurrentWordleItem()?.answer.length || 5;
 }
 
 function renderWordleGrid() {
   elements.wordleGrid.innerHTML = "";
+  const cols = getCurrentWordLength();
   for (let row = 0; row < 5; row++) {
     const rowEl = document.createElement("div");
     rowEl.className = "wordle-row";
-    for (let col = 0; col < 5; col++) {
+    rowEl.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+    for (let col = 0; col < cols; col++) {
       const tile = document.createElement("div");
       tile.className = "tile";
       rowEl.appendChild(tile);
@@ -499,24 +487,26 @@ function renderWordleGrid() {
 function updateWordleMeta(text) {
   const score = state.wordle.score;
   const doneCount = score.correct + score.incorrect;
-  elements.wordleMeta.textContent = `${text} • ${doneCount}/${phrases.length} words done • Score ${score.correct} correct, ${score.incorrect} incorrect`;
+  elements.wordleMeta.textContent = `${text} • ${doneCount}/${wordleItems.length} questions done • Score ${score.correct} correct, ${score.incorrect} incorrect`;
 }
 
 function getNextWordleIndex() {
-  return phrases.findIndex(
+  return wordleItems.findIndex(
     (_, index) =>
       !state.wordle.solved.includes(index) && !state.wordle.incorrect.includes(index)
   );
 }
 
 function applyGuessesToGrid() {
+  const cols = getCurrentWordLength();
   const rows = Array.from(elements.wordleGrid.children);
   rows.forEach((row, rowIndex) => {
     const tiles = Array.from(row.children);
     const guess = state.wordle.guesses[rowIndex];
-    const answer = keyFromPhrase(phrases[state.wordle.index] || "");
+    const answer = (getCurrentWordleItem()?.answer || "").toLowerCase();
     const score = guess ? scoreGuess(guess, answer) : [];
     tiles.forEach((tile, colIndex) => {
+      if (colIndex >= cols) return;
       tile.textContent = guess ? guess[colIndex] : "";
       tile.classList.remove("correct", "present", "absent");
       if (score[colIndex]) tile.classList.add(score[colIndex]);
@@ -525,7 +515,7 @@ function applyGuessesToGrid() {
 }
 
 function scoreGuess(guess, answer) {
-  const result = Array(5).fill("absent");
+  const result = Array(answer.length).fill("absent");
   const answerChars = answer.split("");
   const guessChars = guess.split("");
   guessChars.forEach((char, index) => {
@@ -549,7 +539,7 @@ function renderGuessRow(rowIndex, guess, score) {
   const row = elements.wordleGrid.children[rowIndex];
   if (!row) return;
   const tiles = row.children;
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < score.length; i++) {
     tiles[i].textContent = guess[i] || "";
     tiles[i].classList.add(score[i]);
   }
@@ -557,15 +547,20 @@ function renderGuessRow(rowIndex, guess, score) {
 
 function nextWordleRound() {
   const nextIndex = getNextWordleIndex();
-  state.wordle.index = nextIndex === -1 ? phrases.length : nextIndex;
+  state.wordle.index = nextIndex === -1 ? wordleItems.length : nextIndex;
   state.wordle.guesses = [];
   saveState();
   renderWordleGrid();
-  if (state.wordle.index >= phrases.length) {
-    updateWordleMeta("All phrases solved on this device. Legendary.");
+  if (state.wordle.index >= wordleItems.length) {
+    updateWordleMeta("All questions solved on this device. Legendary.");
+    elements.wordleQuestion.textContent = "All questions complete.";
   } else {
-    updateWordleMeta(`Round ${state.wordle.index + 1} of ${phrases.length}`);
+    updateWordleMeta(`Round ${state.wordle.index + 1} of ${wordleItems.length}`);
+    elements.wordleQuestion.textContent = getCurrentWordleItem().question;
   }
+  const cols = getCurrentWordLength();
+  elements.wordleGuess.setAttribute("maxlength", String(cols));
+  elements.wordleGuess.placeholder = `Type ${cols} letters`;
 }
 
 function addAnswerPill(container, phrase, type) {
@@ -579,36 +574,19 @@ function renderAnswerPills() {
   elements.incorrectAnswers.innerHTML = "";
   elements.correctAnswers.innerHTML = "";
   state.wordle.incorrect.forEach((index) => {
-    addAnswerPill(elements.incorrectAnswers, phrases[index], "danger");
+    addAnswerPill(elements.incorrectAnswers, wordleItems[index].answer, "danger");
   });
   state.wordle.solved.forEach((index) => {
-    addAnswerPill(elements.correctAnswers, phrases[index], "success");
-  });
-}
-
-function addTweet(phrase, index) {
-  const tweet = elements.tweetTemplate.cloneNode(true);
-  tweet.removeAttribute("id");
-  tweet.removeAttribute("hidden");
-  const handle = tweet.querySelector(".tweet__handle");
-  const text = tweet.querySelector(".tweet__text");
-  handle.textContent = index % 2 === 0 ? "@SanjanaSays" : "@AmishSays";
-  text.textContent = phrase;
-  elements.tweetFeed.prepend(tweet);
-}
-
-function renderTweetFeed() {
-  elements.tweetFeed.innerHTML = "";
-  state.wordle.solved.forEach((index) => {
-    addTweet(phrases[index], index);
+    addAnswerPill(elements.correctAnswers, wordleItems[index].answer, "success");
   });
 }
 
 function handleWordleGuess() {
   const maxGuesses = 5;
+  const expectedLength = getCurrentWordLength();
   const guess = elements.wordleGuess.value.trim().toLowerCase();
-  if (!/^[a-z]{5}$/.test(guess)) {
-    updateWordleMeta("Enter exactly 5 letters.");
+  if (!/^[a-z]+$/.test(guess) || guess.length !== expectedLength) {
+    updateWordleMeta(`Enter exactly ${expectedLength} letters.`);
     return;
   }
   if (state.wordle.guesses.length >= maxGuesses) {
@@ -616,32 +594,30 @@ function handleWordleGuess() {
     return;
   }
   const index = state.wordle.index;
-  if (index >= phrases.length) {
-    updateWordleMeta("All phrases solved on this device. Legendary.");
+  if (index >= wordleItems.length) {
+    updateWordleMeta("All questions solved on this device. Legendary.");
     return;
   }
-  const answer = keyFromPhrase(phrases[index]);
+  const answer = wordleItems[index].answer.toLowerCase();
   state.wordle.guesses.push(guess);
   const score = scoreGuess(guess, answer);
   renderGuessRow(state.wordle.guesses.length - 1, guess.toUpperCase(), score);
   elements.wordleGuess.value = "";
 
-  if (state.wordle.guesses.length < maxGuesses) {
-    updateWordleMeta(`Attempt ${state.wordle.guesses.length} of ${maxGuesses} logged.`);
+  if (guess === answer) {
+    if (!state.wordle.solved.includes(index)) {
+      state.wordle.solved.push(index);
+      state.wordle.score.correct += 1;
+    }
+    renderAnswerPills();
+    updateWordleMeta("Correct. Question cleared.");
+    nextWordleRound();
     saveState();
     return;
   }
 
-  const solved = state.wordle.guesses.includes(answer);
-  if (solved) {
-    if (!state.wordle.solved.includes(index)) {
-      state.wordle.solved.push(index);
-      state.wordle.score.correct += 1;
-      addTweet(phrases[index], index);
-    }
-    renderAnswerPills();
-    updateWordleMeta("Solved. Phrase unlocked.");
-    nextWordleRound();
+  if (state.wordle.guesses.length < maxGuesses) {
+    updateWordleMeta(`Attempt ${state.wordle.guesses.length} of ${maxGuesses} logged.`);
     saveState();
     return;
   }
@@ -651,7 +627,7 @@ function handleWordleGuess() {
     state.wordle.score.incorrect += 1;
   }
   renderAnswerPills();
-  updateWordleMeta("Haha nope. System laughs kindly and moves on.");
+  updateWordleMeta(`Incorrect. Answer was ${wordleItems[index].answer}.`);
   nextWordleRound();
   saveState();
 }
@@ -771,14 +747,18 @@ function setupRules() {
 
 function initWordle() {
   renderWordleGrid();
-  renderTweetFeed();
   const nextIndex = getNextWordleIndex();
-  state.wordle.index = nextIndex === -1 ? phrases.length : nextIndex;
-  if (state.wordle.index >= phrases.length) {
-    updateWordleMeta("All phrases solved on this device. Legendary.");
+  state.wordle.index = nextIndex === -1 ? wordleItems.length : nextIndex;
+  if (state.wordle.index >= wordleItems.length) {
+    updateWordleMeta("All questions solved on this device. Legendary.");
+    elements.wordleQuestion.textContent = "All questions complete.";
   } else {
-    updateWordleMeta(`Round ${state.wordle.index + 1} of ${phrases.length}`);
+    updateWordleMeta(`Round ${state.wordle.index + 1} of ${wordleItems.length}`);
+    elements.wordleQuestion.textContent = getCurrentWordleItem().question;
   }
+  const cols = getCurrentWordLength();
+  elements.wordleGuess.setAttribute("maxlength", String(cols));
+  elements.wordleGuess.placeholder = `Type ${cols} letters`;
   applyGuessesToGrid();
   renderAnswerPills();
   elements.wordleSubmit.addEventListener("click", handleWordleGuess);
