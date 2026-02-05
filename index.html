@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sanjana & Amish - Court Wedding Quest</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Space+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <header class="hero hero--landing">
+      <div class="hero__copy">
+        <p class="pill">Court Wedding Quest • Feb 6, 2026 @ 4:30pm CT</p>
+        <h1>Sanjana &amp; Amish</h1>
+        <p class="subtitle">
+          A tiny, fast, playful mission log for the same-day court wedding.
+        </p>
+      </div>
+      <div class="hero__art">
+        <div class="pixel-heart"></div>
+        <div class="pixel-ring"></div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section" id="character-select">
+        <div class="section__title">
+          <h2>Choose Your Role</h2>
+          <p>Pick your entry. Your progress is saved locally.</p>
+        </div>
+        <div class="card-grid">
+          <article class="card hero-card" data-role="sanjana">
+            <button class="exit-btn" data-exit hidden>Exit</button>
+            <div class="avatar avatar--sanjana"></div>
+            <h3>SANJANA</h3>
+            <p class="tag">Hero</p>
+            <div class="stat">
+              <span>Patience</span>
+              <div class="bar"><i style="width: 70%"></i></div>
+            </div>
+            <div class="stat">
+              <span>Skin Glow</span>
+              <div class="bar"><i style="width: 99%"></i></div>
+            </div>
+            <div class="stat">
+              <span>Spiciness</span>
+              <div class="bar"><i style="width: 87%"></i></div>
+            </div>
+            <div class="stat">
+              <span>Hindi</span>
+              <div class="bar"><i style="width: 65%"></i></div>
+            </div>
+            <button class="btn btn--primary" data-enter="sanjana">
+              Enter as Sanjana
+            </button>
+          </article>
+
+          <article class="card hero-card" data-role="amish">
+            <button class="exit-btn" data-exit hidden>Exit</button>
+            <div class="avatar avatar--amish"></div>
+            <h3>AMISH</h3>
+            <p class="tag">Hero</p>
+            <div class="stat">
+              <span>Logic</span>
+              <div class="bar"><i style="width: 87%"></i></div>
+            </div>
+            <div class="stat">
+              <span>Clumsiness</span>
+              <div class="bar"><i style="width: 95%"></i></div>
+            </div>
+            <div class="stat">
+              <span>Snack-Stealing</span>
+              <div class="bar"><i style="width: 91%"></i></div>
+            </div>
+            <div class="stat">
+              <span>Kannada</span>
+              <div class="bar"><i style="width: 7.5%"></i></div>
+            </div>
+            <button class="btn btn--primary" data-enter="amish">
+              Enter as Amish
+            </button>
+          </article>
+
+          <article class="card npc-card" data-role="npc">
+            <button class="exit-btn" data-exit hidden>Exit</button>
+            <div class="avatar avatar--npc"></div>
+            <h3>NPC Mode (For peasants who are not Sanjana and Amish)</h3>
+            <p class="tag">Side Character</p>
+            <label class="field">
+              <span>Enter your name (if you must)</span>
+              <input
+                type="text"
+                id="npc-name"
+                placeholder="Your name"
+                autocomplete="off"
+              />
+              <small>You are not the main character, but we’ll allow it.</small>
+            </label>
+            <div class="npc-resume" id="npc-resume"></div>
+            <button class="btn btn--secondary" data-enter="npc">
+              Enter as NPC (peasant)
+            </button>
+          </article>
+        </div>
+        <div class="notice" id="role-status"></div>
+      </section>
+
+      <nav class="tabs" id="page-tabs">
+        <button class="tab" data-tab="dashboard">Dashboard</button>
+        <button class="tab" data-tab="wordle">Wordle</button>
+        <button class="tab" data-tab="bingo">Bingo</button>
+      </nav>
+
+      <section class="section page" id="dashboard" data-page="dashboard">
+        <div class="hero__meta">
+          <span class="chip">Intimate</span>
+          <span class="chip">Whimsical</span>
+          <span class="chip">Main character energy</span>
+        </div>
+        <div class="section__title">
+          <h2>Journey Dashboard</h2>
+          <p>Live timers, quest log, and milestone drops.</p>
+        </div>
+        <div class="countdown-panel" id="countdown-panel">
+          <div class="countdown countdown--primary">
+            <h3>COURT WEDDING</h3>
+            <p class="label">T-minus to “I Do”</p>
+            <div class="timer" id="wedding-timer">00 : 00 : 00 : 00</div>
+            <p class="timer-sub" id="wedding-status"></p>
+          </div>
+          <div class="countdown countdown--secondary">
+            <h4>VALENTINE’S DAY</h4>
+            <div class="timer timer--small" id="valentine-timer">00 : 00 : 00 : 00</div>
+          </div>
+        </div>
+
+        <div class="quest-log" id="quest-log"></div>
+      </section>
+
+      <section class="section page" id="wordle" data-page="wordle">
+        <div class="section__title">
+          <h2 id="wordle-title">Inside Jokes</h2>
+          <p>One word per round. Each solve drops a “tweet.”</p>
+        </div>
+        <div class="card wordle-card">
+          <div class="wordle-header">
+            <span class="pill">Cool Things We Say</span>
+            <button class="btn btn--ghost" id="open-rules">Rules</button>
+          </div>
+          <div class="wordle-question" id="wordle-question"></div>
+          <div class="wordle-results">
+            <div class="result-block">
+              <span class="pill pill--danger">Incorrect answers</span>
+              <div class="pill-stack" id="incorrect-answers"></div>
+            </div>
+            <div class="result-block">
+              <span class="pill pill--success">Correct answers</span>
+              <div class="pill-stack" id="correct-answers"></div>
+            </div>
+          </div>
+          <div class="wordle-grid" id="wordle-grid"></div>
+          <div class="wordle-input">
+            <input
+              type="text"
+              id="wordle-guess"
+              maxlength="5"
+              placeholder="Type 5 letters"
+              autocomplete="off"
+            />
+            <button class="btn btn--primary" id="wordle-submit">Guess</button>
+          </div>
+          <div class="wordle-meta" id="wordle-meta"></div>
+        </div>
+      </section>
+
+      <section class="section page" id="bingo" data-page="bingo">
+        <div class="section__title">
+          <h2>Wedding Day Bingo</h2>
+          <p>Tap a square when it happens. Rows trigger a tiny celebration.</p>
+        </div>
+        <div class="bingo-status" id="bingo-status"></div>
+        <div class="bingo-grid" id="bingo-grid"></div>
+      </section>
+    </main>
+
+    <div class="valentine-banner" id="valentine-banner">
+      <span id="valentine-text">Be my Valentine? 💘</span>
+      <div class="banner-buttons">
+        <button class="btn btn--primary" id="valentine-yes">Yes</button>
+        <button class="btn btn--secondary" id="valentine-no">No</button>
+      </div>
+    </div>
+
+    <div class="notification" id="notification"></div>
+
+    <div class="rules" id="rules" aria-hidden="true">
+      <div class="rules__content">
+        <h3>Rules</h3>
+        <ul>
+          <li>One word per round.</li>
+          <li>Guess 5-letter words (standard Wordle behavior).</li>
+          <li>Green = correct letter + position.</li>
+          <li>Yellow = correct letter, wrong spot.</li>
+          <li>Gray = not in word.</li>
+        </ul>
+        <button class="btn btn--primary" id="close-rules">Got it</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
