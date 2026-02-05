@@ -240,10 +240,14 @@ div {
 }
 
 .page {
+  display: flex;
+}
+
+body.js-ready .page {
   display: none;
 }
 
-.page.active {
+body.js-ready .page.active {
   display: flex;
 }
 

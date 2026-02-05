@@ -768,6 +768,7 @@ function initWordle() {
 }
 
 function init() {
+  document.body.classList.add("js-ready");
   state.role = null;
   setupRoleButtons();
   setupTabs();
